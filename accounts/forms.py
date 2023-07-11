@@ -28,18 +28,18 @@ class CustomerSignUpForm(UserCreationForm):
 
 	mobile = forms.CharField(max_length=12, 
 							 required=True, 
-							 help_text='Enter Phone Number'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Phone Number (+0 0000-0000-000)'}),)
+							 help_text='Enter Phone Number',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number (+0 0000-0000-000)'}),)
 
 	first_name = forms.CharField(max_length=100, 
-							 required=True, 
-							 help_text='Enter First Name'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'First Name'}),)
+			      				 required=True, 
+							 	 help_text='Enter First Name',
+							 	 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),)
 
 	last_name = forms.CharField(max_length=100, 
-							 required=True, 
-							 help_text='Enter Last Name'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Last Name'}),)
+							 	required=True, 
+							 	help_text='Enter Last Name', 
+								widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),)
 
 	gender = forms.ChoiceField(choices=GENDER)
 
@@ -47,16 +47,16 @@ class CustomerSignUpForm(UserCreationForm):
 
 	location = forms.CharField(max_length=100, 
 							 required=True, 
-							 help_text='Enter Location'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Location'}),)
+							 help_text='Enter Location',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),)
 
 	password1 = forms.CharField(help_text='Enter Password', 
 								required=True, 
-								widget=forms.PasswordInput(attrs{'class': 'form-control', 'placeholder': 'Password'}),)
+								widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),)
 
 	password2 = forms.CharField(help_text='Enter Password Again', 
 								required=True, 
-								widget=forms.PasswordInput(attrs{'class': 'form-control', 'placeholder': 'Confirm Password'}),)
+								widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}),)
 
 	check = forms.BooleanField(required=True)
 
@@ -92,28 +92,28 @@ class EmployeeSignUpForm(UserCreationForm):
 
 	mobile = forms.CharField(max_length=12, 
 							 required=True, 
-							 help_text='Enter Phone Number'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Phone Number (+0 0000-0000-000)'}),)
+							 help_text='Enter Phone Number',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number (+0 0000-0000-000)'}),)
 
 	first_name = forms.CharField(max_length=100, 
 							 required=True, 
-							 help_text='Enter First Name'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'First Name'}),)
+							 help_text='Enter First Name',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),)
 
 	last_name = forms.CharField(max_length=100, 
 							 required=True, 
-							 help_text='Enter Last Name'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Last Name'}),)
+							 help_text='Enter Last Name',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),)
 
 	nif = forms.CharField(max_length=10, 
 							 required=True, 
-							 help_text='Enter Nif'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'NIF'}),)
+							 help_text='Enter Nif',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'NIF'}),)
 
 	ciu = forms.CharField(max_length=10, 
 							 required=True, 
-							 help_text='Enter Ciu'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'CIU'}),)
+							 help_text='Enter Ciu',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CIU'}),)
 
 	gender = forms.ChoiceField(choices=GENDER)
 
@@ -123,21 +123,21 @@ class EmployeeSignUpForm(UserCreationForm):
 
 	designation = forms.CharField(max_length=100, 
 							 required=True, 
-							 help_text='Enter Designation'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Designation'}),)
+							 help_text='Enter Designation',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Designation'}),)
 
 	workplace = forms.CharField(max_length=100, 
 							 required=True, 
-							 help_text='Enter Workplace'
-							 widget=forms.TextInput(attrs-{'class': 'form-control', 'placeholder': 'Workplace'}),)
+							 help_text='Enter Workplace',
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Workplace'}),)
 
 	password1 = forms.CharField(help_text='Enter Password', 
 								required=True, 
-								widget=forms.PasswordInput(attrs{'class': 'form-control', 'placeholder': 'Password'}),)
+								widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),)
 
 	password2 = forms.CharField(help_text='Enter Password Again', 
 								required=True, 
-								widget=forms.PasswordInput(attrs{'class': 'form-control', 'placeholder': 'Confirm Password'}),)
+								widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}),)
 
 	check = forms.BooleanField(required=True)
 
