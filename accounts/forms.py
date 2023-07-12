@@ -4,7 +4,7 @@ from .models import User, Customer, Employee
 from django import forms
 from django.contrib.auth import get_user_model
 
-User = get_user_model
+User = get_user_model()
 
 class DateInput(forms.DateInput):
 	input_type = 'date'
@@ -16,11 +16,6 @@ class CustomerSignUpForm(UserCreationForm):
 				('F', 'F'),
 			)
 
-	ROLE = (
-				('CUSTOMER', 'CUSTOMER'),
-				('EMPLOYEE', 'EMPLOYEE'),
-			)
-
 	email = forms.EmailField(max_length=255, 
 							 required=True, 
 							 help_text='Enter Email Address', 
@@ -29,7 +24,7 @@ class CustomerSignUpForm(UserCreationForm):
 	mobile = forms.CharField(max_length=12, 
 							 required=True, 
 							 help_text='Enter Phone Number',
-							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number (+0 0000-0000-000)'}),)
+							 widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}),)
 
 	first_name = forms.CharField(max_length=100, 
 			      				 required=True, 
@@ -42,8 +37,6 @@ class CustomerSignUpForm(UserCreationForm):
 								widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),)
 
 	gender = forms.ChoiceField(choices=GENDER)
-
-	role = forms.ChoiceField(choices=ROLE)
 
 	location = forms.CharField(max_length=100, 
 							 required=True, 
@@ -70,7 +63,7 @@ class CustomerSignUpForm(UserCreationForm):
 		user.is_customer = True
 		if commit:
 			user.save()
-		customer = Customer.objects.create(user=user, mobile=self.cleaned_data.get('mobile'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), gender=self.cleaned_data.get('gender'), role=self.cleaned_data.get('role'), location=self.cleaned_data.get('location'))	
+		customer = Customer.objects.create(user=user, mobile=self.cleaned_data.get('mobile'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), gender=self.cleaned_data.get('gender'), location=self.cleaned_data.get('location'))	
 		return user	
 
 class EmployeeSignUpForm(UserCreationForm):
@@ -78,11 +71,6 @@ class EmployeeSignUpForm(UserCreationForm):
 	GENDER = (
 				('M', 'M'),
 				('F', 'F'),
-			)
-
-	ROLE = (
-				('CUSTOMER', 'CUSTOMER'),
-				('EMPLOYEE', 'EMPLOYEE'),
 			)
 
 	email = forms.EmailField(max_length=255, 
@@ -117,8 +105,6 @@ class EmployeeSignUpForm(UserCreationForm):
 
 	gender = forms.ChoiceField(choices=GENDER)
 
-	role = forms.ChoiceField(choices=ROLE)
-
 	birth_date = forms.DateField(widget=DateInput)
 
 	designation = forms.CharField(max_length=100, 
@@ -151,7 +137,7 @@ class EmployeeSignUpForm(UserCreationForm):
 		user.is_employee = True
 		if commit:
 			user.save()
-		employee = Employee.objects.create(user=user, mobile=self.cleaned_data.get('mobile'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), nif=self.cleaned_data.get('nif'), ciu=self.cleaned_data.get('ciu'), gender=self.cleaned_data.get('gender'), role=self.cleaned_data.get('role'), birth_date=self.cleaned_data.get('birth_date'), designation=self.cleaned_data.get('designation'), workplace=self.cleaned_data.get('workplace'))	
+		employee = Employee.objects.create(user=user, mobile=self.cleaned_data.get('mobile'), first_name=self.cleaned_data.get('first_name'), last_name=self.cleaned_data.get('last_name'), nif=self.cleaned_data.get('nif'), ciu=self.cleaned_data.get('ciu'), gender=self.cleaned_data.get('gender'), birth_date=self.cleaned_data.get('birth_date'), designation=self.cleaned_data.get('designation'), workplace=self.cleaned_data.get('workplace'))	
 		return user			
 
 class LoginForm(AuthenticationForm):
